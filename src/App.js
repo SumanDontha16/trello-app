@@ -11,7 +11,7 @@ function App() {
       await axios.get(
         'https://jsonplaceholder.typicode.com/users',
       ).then(res => {
-        const cards = {
+        const data = {
           lanes: [
             {
               id: "applicants",
@@ -31,7 +31,7 @@ function App() {
             }
           ]
         };
-        setCards(cards);
+        setCards(data);
       })
         .catch(error => {
           console.error(error);
@@ -40,20 +40,9 @@ function App() {
     fetchData()
   }, []);
 
-  useEffect(() => {
-    const cards = localStorage.getItem("my-card-list")
-    if (cards) {
-      setCards(JSON.parse(cards))
-    }
-  }, [])
-
-  useEffect(() => {
-    localStorage.setItem("my-card-list", JSON.stringify(cards))
-  })
-
   return (
     <div className="container-fluid">
-      <h1 className='mb-3 mt-3' data-testid="title"> My Trello App </h1>
+      <h1 className='mb-3 mt-3' data-testid="title">My Trello App</h1>
       {!isEmpty(cards) ? <Board data={cards} draggable editable canAddLanes addLaneTitle addCardTitle /> : <p>Loading...</p>}
     </div>
   );

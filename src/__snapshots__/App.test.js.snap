@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App render successfully Test to match snapshot of component 1`] = `
+<div
+  className="container-fluid"
+>
+  <h1
+    className="mb-3 mt-3"
+    data-testid="title"
+  >
+    My Trello App
+  </h1>
+  <p>
+    Loading...
+  </p>
+</div>
+`;
